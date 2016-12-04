@@ -16,7 +16,7 @@ def get_news(publication="bbc"):
     """pull the articles from RSS
     """
     feed = feedparser.parse(RSS_FEEDS[publication])
-    return render_template("home.html", articles=feed['entries'])
+    return render_template("index.html", publication=publication.upper(), articles=feed['entries'])
 
 if __name__ == "__main__":
     app.run(port=5000, debug=True)
